@@ -1,0 +1,425 @@
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-behavior: auto;
+    scroll-snap-type: both mandatory ;
+    overflow: scroll;
+    height: 100vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: black;
+}
+
+.Home::-webkit-scrollbar {
+    display: none;
+  }
+
+.Banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 105vh;
+    background-color: black;
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+.BannerImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/Home.jpg");
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+}
+
+.BannerText{
+    display: flex;
+    transform-origin: center;
+    width: 100%;
+    height:39%;
+    background-image: url("./images/Title.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+.ButtonContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    align-self: center;
+}
+
+.ArrowImg{
+animation-name: arrowAnim;
+animation-duration: 1s;
+animation-timing-function: ease-in-out;
+animation-direction: alternate-reverse;
+animation-iteration-count: infinite;
+}
+
+@keyframes arrowAnim {
+    0% { transform: translateY( 0vh ); }
+    100% { transform: translateY( 1vh ); }
+}
+
+.AboutWorlds{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    height: 105vh;
+    background-image: linear-gradient( to bottom right , #6195a6 , #0a2943 ); 
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+.AboutText{
+    display: flex;
+    transform-origin: center;
+    width: 40%;
+    height:25%;
+    background-image: url("./images/About.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    margin-top: 3vh;
+    margin-left: -3vw;
+    align-self: start;
+}
+
+.AboutDivider{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    color: white;
+    align-self: start;
+    font-weight: normal;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 75%;
+    word-wrap: break-word;   
+    margin-left: 0vw;
+    margin-top: 0;
+    font-size: 2.5vh;
+    text-align: left;
+}
+
+.TreeImg{
+    display: flex;
+    position: relative;
+    height: 66%;
+    aspect-ratio: 1;
+    bottom: 0;
+    right: 0;
+    border-radius: 0.5cm;
+    
+    animation-name: TreeAnim;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes TreeAnim {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(5%); }
+}
+
+.GptTest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 105vh;
+    background-image: linear-gradient( to bottom right , #4a4a4a , #090909 ); 
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.GptTestBack{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./images/ArrowsTest.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 110vh;
+    width: 100vw;
+    left:0;
+    flex-shrink: 0;
+}
+
+
+.GPTTestText{
+    position: absolute;
+    display: flex;
+    transform-origin: center;
+    width: 30%;
+    height:25%;
+    background-image: url("./images/TextureDemo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    margin-top: 3vh;
+    top: 1vh;
+}
+
+.GptTestHeading
+{
+    margin-top: 20vh;
+}
+
+.GptTexture{
+    display: flex;
+    position: absolute;
+    height: 23vh;
+    aspect-ratio: 1;
+    border-radius: 10%;
+    border: 1vh solid rgb(0, 179, 179);
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: 0px 0px 3vh 0vh black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.image1
+{
+    top: 42%;
+    left: 43%;
+    /* background-image: url("./images/image1.jpg"); */
+}
+
+.image2
+{
+    top: 42%;
+    left: 61%;
+    /* background-image: url("./images/image2.png"); */
+}
+
+.image3
+{
+    top: 60%;
+    left: 52%;
+    /* background-image: url("./images/image3.jpg"); */
+}
+
+.image4
+{
+    top: 60%;
+    left: 70%;
+    /* background-image: url("./images/image4.png"); */
+}
+
+.GptChat
+{
+    display: flex;
+    position: absolute;
+    height: 60vh;
+    width: 23vw;
+    aspect-ratio: 1;
+    border-radius: 5%;
+    border: 1vh solid rgb(0, 179, 179);
+    background-color: #101010;
+    left: 17%;
+    top: 33%;
+    box-shadow: 0px 0px 3vh 0vh black;
+    justify-items: end;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.GptChatBox{
+    display: flex;
+    height: 90%;
+    width: 100%;
+    background-image: linear-gradient( to bottom right , #40616d , #0a2943 ); 
+    flex-direction: column;
+    justify-content: end;
+    gap: 5%;
+    padding: 3%;
+}
+
+.GptControls{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    background: #40616d;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 1%;
+    box-shadow: 0px 0px 10px 3px black;
+}
+
+.GptMessage{
+    display: flex;
+    width: 80%;
+    background-color: #DDD;
+    border-radius: 0.25cm;
+    margin: 1%;
+    padding: 5%;
+    box-shadow: 0px 0px 10px 3px #00000039;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.Gpt{
+    align-self: start;
+    text-align: left;
+}
+
+.User{
+    align-self: end;
+    text-align: right;
+}
+
+
+.MapGen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 105vh;
+    background-image: url("./images/mapgen.gif");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    scroll-snap-align: end;
+    flex-shrink: 0;
+    gap:0;
+}
+
+.MapGenDarken{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-image: linear-gradient(to bottom , #00000000 , #000000AA , #000000FF);
+    height: 110vh;
+    width: 100vw;
+    position: static;
+    top:35%;
+    left:0;
+    flex-shrink: 0;
+}
+
+.MapGenText{
+    display: flexbox;
+    position: relative;
+    width: 39%;
+    height:39%;
+    background-image: url("./images/ProcGenCenter.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    border-radius: 0.5cm;
+    margin-bottom: -5%;
+    margin-top: 0;
+}
+
+
+h1{
+    color: #EEE;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 90%;
+    word-wrap: break-word;   
+    margin-top: 0;
+    font-size: 3vh;
+    text-align: center;
+    padding: 5vh;
+    border-radius: 0.5cm;
+    margin-bottom: 5vh;
+}
+
+
+.AdaptiveAI{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: white; 
+    overflow: hidden;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.NpcAi{
+    position: absolute;
+    display: flex;
+    transform-origin: center;
+    width: 25%;
+    height:25%;
+    background-image: url("./images/npcair.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    margin-top: 3vh;
+    left: 3vw;
+    top: 1vh;
+}
+
+
+.ai01{
+    height: 85%;
+    width: 85%;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("./images/stage1.jpg");
+    transition-duration: 0.5s;
+}
+
+.LeftArrow{
+    position: absolute;
+    display: flex;
+    transform-origin: center;
+    flex-shrink: 0;
+    left: 2vw;
+    top: 10%;
+}
+
+
+.RightArrow{
+    position: absolute;
+    display: flex;
+    transform-origin: center;
+    flex-shrink: 0;
+    right: 2vw;
+    top: 10%;
+}
