@@ -102,6 +102,12 @@ function MuiAppBar() {
                 </MenuItem>
                 </Link>
 
+                <Link to="/worlds/marketplace">
+                <MenuItem key={2} onClick={() => {console.log("MAR")}}>
+                  <Typography textAlign="center">MARKETPLACE</Typography>
+                </MenuItem>
+                </Link>
+
             </Menu>
           </Box>
           <PublicOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -137,6 +143,13 @@ function MuiAppBar() {
                   <Typography textAlign="center">GENERATE</Typography>
                 </Button>
                 </Link>
+
+                <Link to="/worlds/marketplace">
+                <Button key={2} onClick={() => {console.log("MAR")}} sx={{ my: 2, color: 'white', display: 'block' }}  >
+                  <Typography textAlign="center">MARKETPLACE</Typography>
+                </Button>
+                </Link>
+          
           </Box>
 
         </Toolbar>

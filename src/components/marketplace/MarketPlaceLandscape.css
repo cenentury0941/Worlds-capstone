@@ -1,0 +1,46 @@
+
+.MainContainer
+{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.SubContainer
+{
+    display: flex;
+    height:100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.Landing01
+{
+    background-image: url("./images/Landing01.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.LandingTitle
+{   
+    height: 50%;
+    width: 50%;
+    background-image: url("./images/LandingTitle.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 2vw;
+    margin-top: 5vh;
+}
+
+.SlideshowBackground
+{
+    background-image: url("./images/slideshow_background.jpg");
+    animation: SlideshowAnimation 39s linear 0s infinite;
+}
+
+@keyframes SlideshowAnimation {
+    0% { background-position-x: 0vw; }
+    100% { background-position-x: -100vw; }
+}

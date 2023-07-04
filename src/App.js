@@ -10,6 +10,8 @@ import Generate from './components/Generate';
 import Home from './components/Home';
 import HardAcc from './components/hardacc';
 
+import Landing from './components/marketplace/Landing';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -32,6 +34,7 @@ function App() {
           <Route path="worlds/generate/" element={<Generate/>} />
           <Route path="worlds/game/" element={<Game />} />
           <Route path="worlds/hardacc/" element={<HardAcc />} />
+          <Route path="worlds/marketplace/" element={ <Landing/> }/>
       </Routes>
     </BrowserRouter>
     </div>
