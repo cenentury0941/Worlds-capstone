@@ -31,7 +31,7 @@ function DashboardDrawer(props)
       >
         <Toolbar />
         <div className="SidebarLogo"  />
-        <h2 className="UserGreet">Welcome, <br/><b>RussianBot69420</b></h2>
+        <h2 className="UserGreet">Welcome, <br/><b>{props.userName}</b></h2>
           <Divider />
         <Box sx={{ overflow: 'auto' , display: "flex", flexDirection : "column" , height: "100%"}}>
           <List>
@@ -50,7 +50,7 @@ function DashboardDrawer(props)
           <Divider  sx={{ marginTop : "auto"}}/>
           <List>
             {['Sign Out'].map((text, index) => (
-              <ListItem key={text} disablePadding>
+              <ListItem key={text} disablePadding onClick={ () => { props.signOut() } }>
                 <ListItemButton>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
