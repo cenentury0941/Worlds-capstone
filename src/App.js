@@ -11,6 +11,9 @@ import Home from './components/Home';
 import HardAcc from './components/hardacc';
 
 import Landing from './components/marketplace/Landing';
+import SignIn from './components/marketplace/SignIn';
+import SignUp from './components/marketplace/SignUp';
+import Dashboard from './components/marketplace/Dashboard';
 
 const theme = createTheme({
   palette: {
@@ -35,6 +38,9 @@ function App() {
           <Route path="worlds/game/" element={<Game />} />
           <Route path="worlds/hardacc/" element={<HardAcc />} />
           <Route path="worlds/marketplace/" element={ <Landing/> }/>
+          <Route path="worlds/marketplace/signin" element={ <SignIn/> }/>
+          <Route path="worlds/marketplace/signup" element={ <SignUp/> }/>
+          <Route path="worlds/marketplace/dashboard" element={ <Dashboard/> }/>
       </Routes>
     </BrowserRouter>
     </div>

@@ -24,20 +24,39 @@
 
 .LandingTitle
 {   
-    height: 50%;
+    aspect-ratio: 3.2;
     width: 50%;
     background-image: url("./images/LandingTitle.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 2vw;
-    margin-top: 5vh;
+    margin-top: 15vh;
+    margin-bottom: 0;
+}
+
+.LandingSubtitle
+{   
+    width: 45%;
+    margin-left: 3vw;
+    font-weight: normal;
+    font-size: 3vh;
 }
 
 .SlideshowBackground
 {
     background-image: url("./images/slideshow_background.jpg");
     animation: SlideshowAnimation 39s linear 0s infinite;
+}
+
+.ButtonFlex{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    margin-left: 3vw;
+    width: 45%;
+    justify-content: center;
+    margin-top: 3vh;
 }
 
 @keyframes SlideshowAnimation {

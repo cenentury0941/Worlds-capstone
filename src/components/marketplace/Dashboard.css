@@ -1,0 +1,45 @@
+.DashboardMainContainer{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    align-items: end;
+    justify-content: flex-end;
+}
+
+.SidebarLogo
+{
+    aspect-ratio: 1;
+    width: 90%;
+    background-image: url("./images/SidebarLogo.jpg");
+    background-position: center;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.UserGreet{
+    color: black;
+    font-size: 2.2vh;
+    margin-left: 1vw;
+}
+
+.DashboardWindow
+{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.DashboardHeading {
+    color: black;
+    margin: 0;
+    font-size: 3.9vh;
+    font-weight: normal;
+    margin-left: 3vw;
+}
+

@@ -38,7 +38,9 @@ function MuiAppBar() {
   };
 
   return (
-    <AppBar style={{display:"flex", justifySelf:"flex-start", background:"black", height: "8vh", paddingTop: "0.3%"}}>
+    <AppBar style={{display:"flex", justifySelf:"flex-start", background:"black"}}
+    sx={{ zIndex: 6969 }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <PublicOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
