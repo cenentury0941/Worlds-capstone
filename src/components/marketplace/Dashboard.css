@@ -2,7 +2,7 @@
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-image: linear-gradient(to bottom right , #ceeffc , #7fcde0);
     overflow: hidden;
     align-items: end;
     justify-content: flex-end;
@@ -22,7 +22,7 @@
 .UserGreet{
     color: black;
     font-size: 2.2vh;
-    margin-left: 1vw;
+    margin-left: 1.5vw;
 }
 
 .DashboardWindow
@@ -43,3 +43,80 @@
     margin-left: 3vw;
 }
 
+.DashboardSubHeading {
+    color: #393939;
+    margin: 0;
+    font-size: 3vh;
+    font-weight: normal;
+    margin-left: 3vw;
+    margin-top: 1.5vh;
+}
+
+.DashboardImageContainer {
+    display: flex;
+    flex-direction: row;
+    height: 33vh;
+    width: 90%;
+    margin: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px 0px gray;
+    border-radius: 0.5cm;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.MarketImageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 90%;
+    width: 95%;
+    margin: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px 0px gray;
+    border-radius: 0.5cm;
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    overflow: scroll;
+}
+
+.DashboardImage {
+    display: flex;
+    aspect-ratio: 1;
+    width: 23%;
+    background-color: silver;
+    border-radius: 0.15cm;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 5px 0px gray;
+    margin: 1%;
+    transition-duration: 0.25s;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.DashboardImage > h5:hover{
+    backdrop-filter: blur(5px) brightness(0.5);
+}
+
+.DashboardImage > h5 {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 139%;
+    filter: unset !important;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.25s;
+}

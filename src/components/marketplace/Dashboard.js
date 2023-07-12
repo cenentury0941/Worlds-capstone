@@ -2,6 +2,7 @@ import { React, useEffect , useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
+import { getStorage, ref , listAll, getDownloadURL } from "firebase/storage";
 
 import DashboardDrawer from "./DashboardDrawer";
 import Home from "./Home";
@@ -9,29 +10,27 @@ import Gallery from "./Gallery";
 import Generate from "./Generate";
 import Market from "./Market";
 
+import { auth } from "./firebase";
+
 import "./Dashboard.css";
 import { Toolbar } from "@mui/material";
 
+var completed = 0;
+
 function Dashboard(){
 
-    const HOME = 0 , GENERATE = 1 , GALLERY = 2 , MARKET = 3 ; 
+    const HOME = 0 , GENERATE = 1 , GALLERY = 2 , MARKET = 3 , LOADING = 4; 
     const [ windowId , setWindowId ] = useState(HOME);
+    
 
     const navigate = useNavigate();
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAIN2TF5BrhNOvobAQFg0llhXsTXRRJwXo",
-        authDomain: "worlds-capstone.firebaseapp.com",
-        projectId: "worlds-capstone",
-        storageBucket: "worlds-capstone.appspot.com",
-        messagingSenderId: "245373342483",
-        appId: "1:245373342483:web:3c645c460d222d0b76c0e6",
-        measurementId: "G-P3CNWR4SD1"
-        };
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    var user = auth.currentUser;
-    console.log(user.email);
+    const user = auth.currentUser;
+    
+    if(!user)
+    {
+        navigate("/worlds/marketplace/");
+    }
 
     const signOutUser = () => {
 
@@ -58,6 +57,9 @@ function Dashboard(){
             case MARKET:
                 return <Market />
                 break;
+            case LOADING:
+                return <div style={{ backgroundColor : "black" , height : "100%" , width : "100%" }}></div>
+                break;
             default:
                 return <div>ERROR 404</div>
         }
@@ -67,10 +69,10 @@ function Dashboard(){
 
     return (
         <div className="DashboardMainContainer">
-            <DashboardDrawer changeWindow={DrawerFunction} signOut={signOutUser} userName={user.email.split('@')[0]}/>
+            <DashboardDrawer changeWindow={DrawerFunction} signOut={signOutUser}/>
             
             {
-                renderWindow()
+                renderWindow() 
             }
 
         </div>

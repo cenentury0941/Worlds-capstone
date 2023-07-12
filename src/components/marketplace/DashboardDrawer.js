@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect , useState} from "react";
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -16,9 +16,23 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 import "./Dashboard.css";
+import userEvent from "@testing-library/user-event";
+
+import {auth} from "./firebase.js";
 
 function DashboardDrawer(props)
 {
+
+    const [username , setUsername] = useState("...");
+
+    useEffect( () => {
+      if(auth.currentUser)
+      {
+        setUsername( auth.currentUser.email )
+        console.log("USER : " , auth.currentUser)
+      }
+    } , [auth.currentUser] )
+
     return (
         <Drawer
         variant="permanent"
@@ -31,7 +45,7 @@ function DashboardDrawer(props)
       >
         <Toolbar />
         <div className="SidebarLogo"  />
-        <h2 className="UserGreet">Welcome, <br/><b>{props.userName}</b></h2>
+        <h2 className="UserGreet">Welcome, <br/><b>{username}</b></h2>
           <Divider />
         <Box sx={{ overflow: 'auto' , display: "flex", flexDirection : "column" , height: "100%"}}>
           <List>
