@@ -27,12 +27,15 @@
 
 .DashboardWindow
 {
-    height: 90vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 10vh;
 }
 
 .DashboardHeading {
@@ -98,9 +101,19 @@
     align-items: center;
     flex-direction: column;
 
+    animation-name: revealImage;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+@keyframes revealImage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .DashboardImage > h5:hover{
@@ -119,4 +132,5 @@
     align-items: center;
     justify-content: center;
     transition-duration: 0.25s;
+    user-select: none;
 }

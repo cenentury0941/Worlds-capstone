@@ -15,6 +15,7 @@ function Gallery()
     } 
 
     useEffect( () => {
+        console.log( "UseEffect : auth : " , auth )
         if(auth.currentUser)
         {
             loadImages(auth.currentUser);
@@ -23,7 +24,6 @@ function Gallery()
 
     useEffect( () => {
     console.log( " IMAGES :  " , images ); 
-    setUpdate( update + 1 );
     }, [ images ]);
 
 
@@ -31,7 +31,7 @@ function Gallery()
         <div className="DashboardWindow">
         <div className="DashboardHeading">Gallery</div>
         <div className="MarketImageContainer">
-            { images ? images.map((element)=>(<div key={element.ref} className="DashboardImage" style={{backgroundImage:"url("+element.url+")"}}>
+            { images ? images.map((element, index)=>(<div key={element.ref} className="DashboardImage" style={{backgroundImage:"url("+element.url+")" , animationDelay:""+(index*0.039)+"s"}}>
                 <h5>{element.name}</h5>
             </div>)) : <div>LOADING</div> }
         </div>

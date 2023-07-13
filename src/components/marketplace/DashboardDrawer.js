@@ -26,11 +26,17 @@ function DashboardDrawer(props)
     const [username , setUsername] = useState("...");
 
     useEffect( () => {
-      if(auth.currentUser)
-      {
-        setUsername( auth.currentUser.email )
-        console.log("USER : " , auth.currentUser)
-      }
+      
+      setTimeout( () => {
+        if(auth.currentUser)
+        {
+          setUsername( auth.currentUser.email )
+          console.log("USER : " , auth.currentUser)
+        }
+      }, 
+      1000
+      )
+
     } , [auth.currentUser] )
 
     return (
