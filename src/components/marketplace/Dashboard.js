@@ -46,7 +46,7 @@ function Dashboard(){
         switch( windowId )
         {
             case HOME:
-                return <Home />
+                return <Home changeWindow={DrawerFunction}/>
                 break;
             case GENERATE:
                 return <Generate />

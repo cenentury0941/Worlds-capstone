@@ -5,8 +5,9 @@ import { getStorage, ref , listAll, getDownloadURL } from "firebase/storage";
 
 import "./Dashboard.css";
 import { auth } from "./firebase";
-import {getMarketImages,getGalleryImages} from "./db";
+import {getMarketImages,getGalleryImages, removeExtImage } from "./db";
 import MarketImageDetails from "./MarketImageDetails";
+import GalleryImageDetails from "./GalleryImageDetails";
 
 function Home(props)
 {
@@ -22,7 +23,10 @@ function Home(props)
         setGalleryImages( (await getGalleryImages(user)).slice(0,5) );
     } 
 
-
+    const removeImage = async ( ref) => {
+        var res = await removeExtImage( auth.currentUser.email ,ref);
+        console.log( "Image removal : " + res );
+    } 
     
     useEffect(() => {
         console.log("Init Effect" , auth)
@@ -49,12 +53,14 @@ function Home(props)
     return (
         <div className="DashboardWindow">
             <div className="DashboardHeading">Home</div>
-            <div className="DashboardSubHeading">Your Gallery</div>
+            <div className="DashboardSubHeading">Your Gallery <u style={{fontSize:"75%", marginLeft:"63vw", color: "blue", cursor:"pointer"}} onClick={()=>{props.changeWindow(2)}}>view all</u></div>
             <div className="DashboardImageContainer">
-            { galleryImages ? galleryImages.map((element)=>(<div key={element.ref} className="DashboardImage" style={{backgroundImage:"url("+element.url+")"}}>
+            { galleryImages ? galleryImages.map((element)=>(<div key={element.ref} className="DashboardImage"  style={{height:"80%", width:"unset", backgroundImage:"url("+element.url+")"}}
+            onClick={ () => {setGalleryImageDetails(element)} }
+            >
                 <h5>{element.name}</h5>
             </div>)) : <div>LOADING</div> }</div>
-            <div className="DashboardSubHeading">Market</div>
+            <div className="DashboardSubHeading">Market    <u style={{fontSize:"75%", marginLeft:"66vw", color: "blue", cursor:"pointer"}} onClick={()=>{props.changeWindow(3)}}>view all</u></div>
             <div className="DashboardImageContainer">
             { marketImages ? marketImages.map((element)=>(element.email != auth.currentUser.email && <div key={element.ref} className="DashboardImage" style={{backgroundImage:"url("+element.url+")"}}
             onClick={ () => {setMarketImageDetails(element)} }
@@ -63,6 +69,7 @@ function Home(props)
             </div>)) : <div>LOADING</div> }
         </div>
         {marketImageDetails && <MarketImageDetails details={marketImageDetails} closeWindow={closeImageDetails} />}
+        {galleryImageDetails && <GalleryImageDetails removeExternalImage={removeImage} details={galleryImageDetails} closeWindow={closeImageDetails} />}
         </div>
     )
 }

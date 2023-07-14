@@ -7,7 +7,7 @@ import { addExternalImage } from "./db";
 
 import "./ImageDetails.css"
 
-function MarketImageDetails({ user, details , closeWindow })
+function MarketImageDetails({ user, details , closeWindow , removeImage })
 {
     return (
     <div className="ImageDetailsBG">
@@ -26,9 +26,9 @@ function MarketImageDetails({ user, details , closeWindow })
             <h3>Owner : {details.email}</h3>
             <h3>Date Created : {details.created.split("T")[0]}</h3>
             <h3>Prompt : {details.prompt}</h3>
-            <div className="ButtonContainer" onClick={ () => { console.log("Added : ", user.email , details.name , details.ref) ; addExternalImage( user.email , details.name , details.ref ) } }>
+            <div className="ButtonContainer" onClick={ () => { console.log("Added : ", user.email , details.name , details.ref) ; addExternalImage( user.email , details.name , details.ref ) ; removeImage(details.ref) } }>
                 <Button variant="outlined">Add to Gallery</Button>
-            </div>
+            </div>            
             </div>
         </div>
     </div>

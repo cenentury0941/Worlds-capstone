@@ -26,6 +26,9 @@
     flex-shrink: 0;
     justify-content: center;
     align-items: start;
+    transition-duration: 0.5s;
+    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .GenerateImage {
@@ -72,7 +75,7 @@
 .GenerateButtonContainer{
     display: flex;
     height: fit-content;
-    width: 75%;
+    width: 90%;
     justify-content: center;
     align-items: center;
     gap: 1vw;
