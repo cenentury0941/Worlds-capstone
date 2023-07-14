@@ -5,6 +5,8 @@ import { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import { addUser } from "./db";
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
@@ -41,7 +43,7 @@ function SignUp()
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     
-    const signUpUser = () => {
+    const signUpUser = async () => {
 
         if(!validateEmail(email))
         {
@@ -54,10 +56,18 @@ function SignUp()
         }
 
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then( async (userCredential) =>  {
           // Signed in 
-          const user = userCredential.user;
-          navigate( "/worlds/marketplace/dashboard" )
+
+          var success = await addUser(email);
+
+          if( success )
+          {
+            const user = userCredential.user;
+            navigate( "/worlds/marketplace/dashboard" )  
+          }
+
+
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -4,8 +4,12 @@ import {getMarketImages} from "./db";
 import MarketImageDetails from "./MarketImageDetails";
 import { auth } from "./firebase";
 
+import { AISearchByTags } from "./openaiAPI";
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+
+var query = "";
 
 function Market()
 {
@@ -39,18 +43,22 @@ function Market()
     }
 
     const removeImage = (ref) => {
-        for( var key of Object.keys(images) )
-        {
+        
+    }
 
-        }
+    const TagSearch = async () => {
+        console.log("QUERY : " + query);
+        var results = await AISearchByTags(query);
+        console.log( "AI FILTERED : " , results );
+        setImages(results);
     }
 
     return (
         <div className="DashboardWindow">
         <div className="DashboardHeading">Market</div>
         <div className="ButtonContainer" style={{backgroundColor:"#00000000"}}>
-            <TextField variant="outlined" color="primary" style={{margin:"10px" , maxWidth:"75%", backgroundColor:"white"}} fullWidth placeholder="AI Search by tags" id="fullWidth" />
-            <Button variant="contained" style={{height:"70%", aspectRatio:"3"}}>Search</Button>
+            <TextField onChange={ (event) => { query = event.target.value; console.log(query) } } variant="outlined" color="primary" style={{margin:"10px" , maxWidth:"75%", backgroundColor:"white"}} fullWidth placeholder="AI Search by tags" id="fullWidth" />
+            <Button onClick={TagSearch} variant="contained" style={{height:"70%", aspectRatio:"3"}}>Search</Button>
         </div>
         <div className="MarketImageContainer">
             { images ? images.map((element,index)=>(<div key={element.ref} className="DashboardImage" style={{backgroundImage:"url("+element.url+")" , animationDelay:""+(index*0.039)+"s"}}

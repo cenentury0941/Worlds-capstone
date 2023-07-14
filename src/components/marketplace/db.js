@@ -34,6 +34,14 @@ async function addImage(email, name , prompt, tags, url)
     } )
 }
 
+async function addUser(email)
+{
+    return fetch("https://localhost:7037/addUser?email=" + email ).then( async (response) => {
+        var res = await response.json();
+        return res["success"];
+    } )
+}
+
 async function toggleAccessibility(refer , access)
 {
     var response = await fetch("https://localhost:7037/toggleAccessibility?refer=" + refer + "&access=" + ( access === 1 ? 0 : 1 ) );
@@ -57,8 +65,24 @@ async function deleteImage(ref)
     var response = await fetch("https://localhost:7037/deleteImage?refer=" + ref );
     var res = await response.json();
     console.log(res)
-    return res["result"];
-    
+    return res["result"];    
 }
 
-export {deleteImage,removeExtImage, toggleAccessibility, addImage , addExternalImage, getMarketImages, getGalleryImages};
+
+async function getTags(ref)
+{
+    var response = await fetch("https://localhost:7037/getTags" );
+    var res = await response.json();
+    console.log(res["tags"])
+    return res["tags"];    
+}
+
+async function getImagesByTag(tags)
+{
+    return fetch("https://localhost:7037/getImagesByTags?tags=" + tags).then( async (response) => {
+        var json = await response.json();
+        return json;
+    } )
+}
+
+export {getImagesByTag,getTags, addUser,deleteImage,removeExtImage, toggleAccessibility, addImage , addExternalImage, getMarketImages, getGalleryImages};
